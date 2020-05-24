@@ -10,21 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Snake.Views
+namespace Tetris.Views
 {
     /// <summary>
-    /// HomeView.xaml 的交互逻辑
+    /// ShellView.xaml 的交互逻辑
     /// </summary>
-    public partial class HomeView : UserControl
+    public partial class ShellView : Window
     {
-        public HomeView()
+        public ShellView()
         {
             InitializeComponent();
-
-            
         }
     }
 }

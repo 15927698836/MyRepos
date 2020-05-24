@@ -1,14 +1,14 @@
-﻿<Window x:Class="Snake.Views.ShellView"
+﻿<Window x:Class="Tetris.Views.ShellView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Snake.Views"
+        xmlns:local="clr-namespace:Tetris.Views"
         mc:Ignorable="d"
-        Title="ShellView" Height="450" Width="800">
-    <Grid Background="#FFC65CFA">
-        
-        <Button x:Name="StartGame">开始游戏</Button>
+        xmlns:cal="http://www.caliburnproject.org"
+        cal:Message.Attach="[Event KeyDown]=[Action ExecuteAction($executionContext)]"
+        Title="ShellView">
+    <Grid>                     
         <ContentControl x:Name="ActiveItem"></ContentControl>
     </Grid>
 </Window>

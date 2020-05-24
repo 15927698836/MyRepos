@@ -6,7 +6,74 @@
              xmlns:local="clr-namespace:Snake.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <Storyboard x:Key="Storyboard1">
+            <DoubleAnimationUsingKeyFrames  Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="rectangle">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="100"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="rectangle">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="-29"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </UserControl.Resources>
     <Grid Background="#E5E5E5">
+
+        <Canvas x:Name="container">
             
+        </Canvas>
+        <!--<Rectangle Width="100" Height="100"  Name="r1">
+            <Rectangle.Fill>
+                <SolidColorBrush Color="Blue" x:Name="s1"/>
+            </Rectangle.Fill>
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    --><!--<RotateTransform x:Name="rot1" CenterX="0" CenterY="0" Angle="0"/>--><!--
+                    <TranslateTransform  x:Name="rot1"/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+            <Rectangle.Triggers>
+                <EventTrigger RoutedEvent="Window.Loaded">
+                    <BeginStoryboard>
+                        <Storyboard  >
+                            <ColorAnimation RepeatBehavior="Forever" AutoReverse="True"  Storyboard.TargetName="s1" Storyboard.TargetProperty="Color" From="Blue" To="Red" Duration="0:0:1" By="green"/>
+                            --><!--<DoubleAnimation RepeatBehavior="Forever" Storyboard.TargetName="rot1" Storyboard.TargetProperty="Angle" From="0" To="360" Duration="0:0:1"/>--><!--
+                            <DoubleAnimationUsingKeyFrames   
+                                Storyboard.TargetProperty="X" Storyboard.TargetName="rot1">  
+                                <EasingDoubleKeyFrame KeyTime="0:0:5" Value="300"/>
+                            </DoubleAnimationUsingKeyFrames>
+
+                            <DoubleAnimationUsingKeyFrames   
+                                Storyboard.TargetProperty="Y" Storyboard.TargetName="rot1">
+                                <EasingDoubleKeyFrame KeyTime="0:0:5" Value="309"/>
+                            </DoubleAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </BeginStoryboard>
+
+                </EventTrigger>
+            </Rectangle.Triggers>
+        </Rectangle>-->
+       
+        <!--<Rectangle Width="50" Height="50" Fill="Black" x:Name="rec" >
+            <Rectangle.Triggers>
+                <EventTrigger>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation From="10.0" To="100.0" Duration="0:0:1"  Storyboard.TargetName="rec" Storyboard.TargetProperty="Height">
+                            </DoubleAnimation>
+                        </Storyboard>
+                        --><!--<Storyboard>
+                            <DoubleAnimationUsingKeyFrames   
+                                Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="rec">
+                                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="100"/>
+                            </DoubleAnimationUsingKeyFrames>
+                            <DoubleAnimationUsingKeyFrames 
+                                Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="rec">
+                                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="-29"/>
+                            </DoubleAnimationUsingKeyFrames>
+                        </Storyboard>--><!--
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Rectangle.Triggers>
+        </Rectangle>-->
     </Grid>
 </UserControl>

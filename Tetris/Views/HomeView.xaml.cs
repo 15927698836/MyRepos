@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Snake.Views
+namespace Tetris.Views
 {
     /// <summary>
     /// HomeView.xaml 的交互逻辑
@@ -23,8 +23,6 @@ namespace Snake.Views
         public HomeView()
         {
             InitializeComponent();
-
-            
         }
     }
 }
