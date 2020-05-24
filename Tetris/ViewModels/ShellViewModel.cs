@@ -36,7 +36,7 @@ namespace Tetris.ViewModels
 
           //  if (eventArgs.Key != Key.Enter) return;
 
-            _events.Publish(eventArgs.Key, action => Task.Factory.StartNew(action));
+            _events.Publish(eventArgs, action => Task.Factory.StartNew(action));
 
         }
     }

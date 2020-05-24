@@ -13,11 +13,13 @@ using System.Windows.Input;
 namespace Tetris.ViewModels
 {
     [Export(typeof(HomeViewModel))]
-    public class HomeViewModel : Screen, INotifyPropertyChanged, IHandle<string>
+    public class HomeViewModel : Screen, INotifyPropertyChanged, IHandle<object>
     {
         readonly IEventAggregator _event;
         //画板,用来放置俄罗斯方块
         Canvas _canvas;
+
+        Canvas _currentBlock;
 
         private RotateTransform rt_FanRotate = new RotateTransform();   //做旋转动
         private DoubleAnimation da_FanRotate = new DoubleAnimation();   //数值类型
@@ -136,6 +138,8 @@ namespace Tetris.ViewModels
             //生成初始方块方块
             Canvas canvas = GetBlock(GetRandomType(), p);
             _canvas.Children.Add(canvas);
+
+            _currentBlock = canvas;
             StartAutoMove(canvas, p);
 
         }
@@ -144,7 +148,7 @@ namespace Tetris.ViewModels
         /// </summary>
         public void StartAutoMove(Canvas canvas, Point point)
         {
-            //创建x轴动画
+            //创建Y轴动画
             DoubleAnimation da = new DoubleAnimation();
             da.From = point.Y;
             da.To = 0;
@@ -164,11 +168,51 @@ namespace Tetris.ViewModels
         }
      
 
-        public void Handle(string message)
+        public void Handle(object par)
         {
-            
+            var eventArgs = (KeyEventArgs)par;
+
+            switch (eventArgs.Key)
+            {
+                case Key.Up:
+
+                    break;
+                case Key.Down:
+
+                    break;
+                case Key.Left:
+                    if (eventArgs.RoutedEvent.Name == "KeyDown")
+                    {
+
+                    }
+                    if (eventArgs.RoutedEvent.Name == "KeyUp")
+                    {
+
+                    }
+                    break;
+                case Key.Right:
+
+                    break;
+                default:
+                    break;
+            };
         }
 
-    
+        public void LeftMove()
+        {
+            //创建x轴动画
+            //DoubleAnimation da = new DoubleAnimation();
+            //da.From = point.Y;
+            //da.To = 0;
+            //da.Duration = TimeSpan.FromSeconds(5);
+            //Storyboard.SetTarget(da, canvas);
+            //Storyboard.SetTargetProperty(da, new PropertyPath(Canvas.BottomProperty));
+            //_storyboard.Children.Add(da);
+
+            //动画播放 
+            _storyboard.Begin();
+        }
+
+
     }
 }

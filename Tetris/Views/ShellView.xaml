@@ -5,9 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Tetris.Views"
         mc:Ignorable="d"
+        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         xmlns:cal="http://www.caliburnproject.org"
-        cal:Message.Attach="[Event KeyDown]=[Action ExecuteAction($executionContext)]"
+        cal:Message.Attach="[Event KeyDown]=[Action ExecuteAction($executionContext)]"        
         Title="ShellView">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="KeyDown">
+            <cal:ActionMessage MethodName="ExecuteAction"  >
+                <cal:Parameter Value="$executionContext"/>
+            </cal:ActionMessage>
+        </i:EventTrigger>
+        <i:EventTrigger EventName="KeyUp">
+            <cal:ActionMessage MethodName="ExecuteAction"  >
+                <cal:Parameter Value="$executionContext"/>
+            </cal:ActionMessage>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    
     <Grid>                     
         <ContentControl x:Name="ActiveItem"></ContentControl>
     </Grid>
