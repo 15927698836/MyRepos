@@ -1,10 +1,5 @@
 ﻿using Caliburn.Micro;
-using Tetris.ViewModels;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.Composition;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
@@ -14,7 +9,7 @@ namespace Tetris.ViewModels
     public class ShellViewModel : Conductor<object>
     {
         private readonly IEventAggregator _events;
-        readonly IWindowManager _windowManager;
+        private readonly IWindowManager _windowManager;
 
         [ImportingConstructor]
         public ShellViewModel(IEventAggregator e, IWindowManager win)
@@ -26,19 +21,18 @@ namespace Tetris.ViewModels
 
         protected override void OnViewLoaded(object view)
         {
-            ActivateItem(new StartViewModel());
+            ActivateItem(new HomeViewModel());
         }
-
 
         public void ExecuteAction(ActionExecutionContext context)
         {
             var eventArgs = (KeyEventArgs)context.EventArgs;
 
-          //  if (eventArgs.Key != Key.Enter) return;
+            _events.Publish(eventArgs, action => Task.Run(action));
+        }
 
-            _events.Publish(eventArgs, action => Task.Factory.StartNew(action));
-
+        public void Add()
+        {
         }
     }
 }
-

@@ -1,22 +1,19 @@
 ﻿using Caliburn.Micro;
-using Tetris.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
 using System.ComponentModel.Composition.Primitives;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
+using Tetris.ViewModels;
 
 namespace Tetris
 {
-
     public class Bootstrapper : BootstrapperBase
     {
-
         private CompositionContainer _container;
+
         public Bootstrapper()
         {
             Initialize();
@@ -64,6 +61,5 @@ namespace Tetris
             //new Summary.Controls.AppBootstrapper().Initialize();
             DisplayRootViewFor<ShellViewModel>();
         }
-
     }
 }

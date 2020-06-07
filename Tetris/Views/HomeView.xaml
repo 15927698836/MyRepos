@@ -1,30 +1,29 @@
-﻿<UserControl x:Class="Tetris.Views.HomeView"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Tetris.Views"
-             mc:Ignorable="d" 
-             xmlns:cal="http://www.caliburnproject.org"
-             cal:Message.Attach="[Event KeyDown]=[Action ExecuteAction($executionContext)]"
-             Focusable="True"
-             d:DesignHeight="450" d:DesignWidth="800">
+﻿<UserControl
+    x:Class="Tetris.Views.HomeView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Controls="clr-namespace:Tetris.Controls"
+    xmlns:cal="http://www.caliburnproject.org"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Tetris.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    Focusable="True"
+    mc:Ignorable="d">
     <Grid Background="White">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="409"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="409" />
+            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <!--方块活动宽409，一个方块40，每个方块间距1-->
-        <Border x:Name="activeArea" Grid.Column="1" Background="Black" >
-            <Canvas >
-                <!--<Button Canvas.Bottom-->
-                <!--<StackPanel Orientation="Horizontal" Canvas.Bottom="0">
-                    <Rectangle Fill="#FF8444B6" Height="39" Width="39" Stroke="#FFEEEEEE" StrokeThickness="1" RadiusX="1" RadiusY="1"/>
-                    <Rectangle Fill="#FF8444B6" Height="39" Width="39" Stroke="#FFEEEEEE" StrokeThickness="1" RadiusX="1" RadiusY="1"/>
-                </StackPanel>-->
-
-            </Canvas>
-        </Border>
+        <Controls:MetroContentControl Grid.Column="1">
+            <Grid x:Name="field" Background="Transparent" />
+        </Controls:MetroContentControl>
+        <Grid
+            x:Name="nextField"
+            Grid.Column="2"
+            HorizontalAlignment="Center"
+            DataContext="{Binding NextField}" />
     </Grid>
 </UserControl>
