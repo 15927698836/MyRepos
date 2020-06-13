@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace WpfAnimationDemo.Views
+namespace CM.WPFApp.Views
 {
     /// <summary>
     /// ShellView.xaml 的交互逻辑
@@ -24,13 +24,9 @@ namespace WpfAnimationDemo.Views
             InitializeComponent();
         }
 
-        private void WebBrowser_TouchDown(object sender, TouchEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-        }
-
-        private void WebBrowser_TouchMove(object sender, TouchEventArgs e)
-        {
-
+            var v = richTB;
         }
     }
 }

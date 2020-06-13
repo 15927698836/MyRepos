@@ -9,42 +9,10 @@
     Title="ShellView"
     Width="800"
     Height="450"
+    
     cal:Message.Attach="[Event Loaded]=[Action Loaded($source)]"
     mc:Ignorable="d">
     <Grid>
-        <Canvas Width="400" Height="400">
-
-            <!--
-                The Button that is animated across the screen by animating
-                the MatrixTransform applied to the button.
-            -->
-            <Button MinWidth="100" Content="A Button">
-                <Button.RenderTransform>
-                    <MatrixTransform x:Name="ButtonMatrixTransform">
-                        <MatrixTransform.Matrix>
-                            <Matrix />
-                        </MatrixTransform.Matrix>
-                    </MatrixTransform>
-                </Button.RenderTransform>
-                <Button.Triggers>
-                    <EventTrigger RoutedEvent="Button.Loaded">
-                        <BeginStoryboard>
-                            <Storyboard>
-                                <MatrixAnimationUsingPath
-                                    DoesRotateWithTangent="True"
-                                    RepeatBehavior="Forever"
-                                    Storyboard.TargetName="ButtonMatrixTransform"
-                                    Storyboard.TargetProperty="Matrix"
-                                    Duration="0:0:5">
-                                    <MatrixAnimationUsingPath.PathGeometry>
-                                        <PathGeometry Figures="M 10,100 C 35,0 135,0 160,100 180,190 285,200 310,100" />
-                                    </MatrixAnimationUsingPath.PathGeometry>
-                                </MatrixAnimationUsingPath>
-                            </Storyboard>
-                        </BeginStoryboard>
-                    </EventTrigger>
-                </Button.Triggers>
-            </Button>
-        </Canvas>
+        <WebBrowser TouchMove="WebBrowser_TouchMove" Source="https://blog.csdn.net/wjqzzzy/article/details/82490552" />
     </Grid>
 </Window>
